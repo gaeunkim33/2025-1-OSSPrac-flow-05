@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 정보 입력</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .person-block {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>학생 정보 입력</h1>
+    <form action="/result" method="POST" id="studentForm">
+        <div id="personContainer">
+            <div class="person-block">
+                <p>이름: <input type="text" name="name[]" required></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required></p>
+                <p>성별:
+                    <input type="radio" name="gender[0]" value="male" required, checked> 남성
+                    <input type="radio" name="gender[0]" value="female"> 여성
+                </p>
+            </div>
+        </div>
+        <button type="button" onclick="addPerson()">추가</button>
+        <button type="submit">제출</button>
+    </form>
+
+<script>
+let personCount = 0;
+
+function addPerson() {
+    const container = document.getElementById("personContainer");
+
+    const personBlock = document.createElement("div");
+    personBlock.className = "person-block";
+    personBlock.innerHTML = `
+        <p>이름: <input type="text" name="name[]" required></p>
+        <p>학번: <input type="text" name="StudentNumber[]" required></p>
+        <p>성별:
+            <input type="radio" name="gender_${personCount}" value="male" required, checked> 남성
+            <input type="radio" name="gender_${personCount}" value="female"> 여성
+        </p>
+    `;
+
+    container.appendChild(personBlock);
+    personCount++;
+}
+</script>
+</body>
+</html>
 
