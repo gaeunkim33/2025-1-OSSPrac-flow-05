@@ -3,53 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-    <title>학생 정보 출력</title>
+    <title>학생 정보 입력</title>
     <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
+        body {
+            font-family: Arial, sans-serif;
         }
-        .student-block {
-            background-color: #f9f9f9;
-            padding: 15px;
+        .person-block {
+            margin-bottom: 15px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h3, h5 {
-            text-align: center;
+            background-color: #f9f9f9;
         }
     </style>
-    <script>
-        function showContactInfo() {
-            alert("긴급전화: 010-1234-5678");
-        }
-        function openContactPage() {
-            window.open("/contact", "contactPage", "width=600,height=400");
-        }
-        function openInputPage() {
-            window.open("/input", "InputPage", "width=800,height=600");
-        }
-    </script>
 </head>
 <body>
-    <h1>학생 정보 출력</h1>
-    <div class="container">
-        <div class="student-block">
-            <p><strong>이름:</strong> </p>
-            <p><strong>학번:</strong> </p>
-        </div>        
-    </div>
-    <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
-    <footer>
-        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
-            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-    </footer>
+    <h1>학생 정보 입력</h1>
+    <form action="/result" method="POST" id="studentForm">
+        <div id="personContainer">
+            <div class="person-block">
+                <p>이름: <input type="text" name="name[]" required placeholder="김동국"></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
+                <p>성별:
+                    <input type="radio" name="gender_0" value="male" required, checked> 남성
+                    <input type="radio" name="gender_0" value="female"> 여성
+                </p>
+                <p>이메일: <input type="email" name="email[]" required placeholder="example@dgu.ac.kr"></p>
+                <p>프로그램 언어:
+                    <input type="checkbox" name="language_0" value="python"> Python
+                    <input type="checkbox" name="language_0" value="java"> Java
+                    <input type="checkbox" name="language_0" value="javascript"> JavaScript
+                    <input type="checkbox" name="language_0" value="c"> C
+                    <input type="checkbox" name="language_0" value="c++"> C++
+                </p>
+            </div>
+        </div>
+        <button type="button" onclick="addPerson()">추가</button>
+        <button type="submit">제출</button>
+
+    <script>
+        let personCount = 0;
+        // 새 입력 필드를 추가하는 함수
+        function addPerson() {
+            personCount++;
+            const container = document.getElementById("personContainer");
+            const personBlock = document.createElement("div");
+            personBlock.className = "person-block";
+            personBlock.innerHTML = `
+                <p>이름: <input type="text" name="name[]" required placeholder="김동국"></p>
+                <p>학번: <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
+                <p>성별:
+                    <input type="radio" name="gender_${personCount}" value="male" required, checked> 남성
+                    <input type="radio" name="gender_${personCount}" value="female"> 여성
+                </p>
+                <p>이메일: <input type="email" name="email[]" required placeholder="example@dgu.ac.kr"></p>
+                <p>프로그램 언어:
+                    <input type="checkbox" name="language_${personCount}" value="python"> Python
+                    <input type="checkbox" name="language_${personCount}" value="java"> Java
+                    <input type="checkbox" name="language_${personCount}" value="javascript"> JavaScript
+                    <input type="checkbox" name="language_${personCount}" value="c"> C
+                    <input type="checkbox" name="language_${personCount}" value="c++"> C++
+                </p>
+            `;
+
+            // 입력 블록을 personContainer에 추가
+            container.appendChild(personBlock);
+        }
+    </script>
 </body>
 </html>
-

@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
-    <title>학생 정보 출력</title>
+    <title>팀 구성원 정보 출력</title>
     <style>
         .container {
             display: flex;
@@ -21,7 +20,7 @@
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
-        h1, h3, h5 {
+        h1 {
             text-align: center;
         }
     </style>
@@ -32,24 +31,24 @@
         function openContactPage() {
             window.open("/contact", "contactPage", "width=600,height=400");
         }
-        function openInputPage() {
-            window.open("/input", "InputPage", "width=800,height=600");
-        }
     </script>
 </head>
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        <div class="student-block">
-            <p><strong>이름:</strong> </p>
-            <p><strong>학번:</strong> </p>
-        </div>        
+        {% for name, student_number, gender, email, languages in students %}
+            <div class="student-block">
+                <p><strong>이름:</strong> {{ name }}</p>
+                <p><strong>학번:</strong> {{ student_number }}</p>
+                <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
+                <p><strong>이메일:</strong> {{ email }}</p>
+                <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
+            </div>
+        {% endfor %}
     </div>
-    <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
     <footer>
         <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
             <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-    </footer>
+    </footer> 
 </body>
 </html>
-
