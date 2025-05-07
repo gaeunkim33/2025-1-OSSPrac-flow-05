@@ -29,12 +29,11 @@
                     <input type="radio" name="gender_0" value="female"> 여성
                 </p>
                 <p>프로그램 언어:
-                    <input type="checkbox" name="language[]" value="python"> Python
-                    <input type="checkbox" name="language[]" value="java"> Java
-                    <input type="checkbox" name="language[]" value="javascript"> JavaScript
-                    <input type="checkbox" name="language[]" value="c"> C
-                    <input type="checkbox" name="language[]" value="c++"> C++
-                    
+                    <input type="checkbox" name="language_0" value="python"> Python
+                    <input type="checkbox" name="language_0" value="java"> Java
+                    <input type="checkbox" name="language_0" value="javascript"> JavaScript
+                    <input type="checkbox" name="language_0" value="c"> C
+                    <input type="checkbox" name="language_0" value="c++"> C++
                 </p>
             </div>
         </div>
@@ -58,11 +57,11 @@ function addPerson() {
             <input type="radio" name="gender_${personCount}" value="female"> 여성
         </p>
         <p>프로그램 언어:
-            <input type="checkbox" name="language[]" value="python"> Python
-            <input type="checkbox" name="language[]" value="java"> Java
-            <input type="checkbox" name="language[]" value="javascript"> JavaScript
-            <input type="checkbox" name="language[]" value="c"> C
-            <input type="checkbox" name="language[]" value="c++"> C++
+            <input type="checkbox" name="language_${personCount}" value="python"> Python
+            <input type="checkbox" name="language_${personCount}" value="java"> Java
+            <input type="checkbox" name="language_${personCount}" value="javascript"> JavaScript
+            <input type="checkbox" name="language_${personCount}" value="c"> C
+            <input type="checkbox" name="language_${personCount}" value="c++"> C++
         </p>
     `;
 
@@ -71,4 +70,3 @@ function addPerson() {
 </script>
 </body>
 </html>
-
