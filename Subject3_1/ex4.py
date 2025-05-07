@@ -13,7 +13,7 @@ def result():
     names = request.form.getlist('name[]')
     student_numbers = request.form.getlist('StudentNumber[]')
     languages = request.form.getlist('language[]')
-    
+    major = request.form.getlist('major[]')
     genders = []
         
     for i in range(len(names)):
@@ -25,4 +25,3 @@ def result():
 
 if __name__ == '__main__':
     app.run(debug=True)
-

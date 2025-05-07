@@ -28,6 +28,7 @@
                     <input type="radio" name="gender_0" value="male" required, checked> 남성
                     <input type="radio" name="gender_0" value="female"> 여성
                 </p>
+                <p>전공: <input type="text" name="major[]" required></p>
                 <p>프로그램 언어:
                     <input type="checkbox" name="language[]" value="python"> Python
                     <input type="checkbox" name="language[]" value="java"> Java
@@ -57,6 +58,7 @@ function addPerson() {
             <input type="radio" name="gender_${personCount}" value="male" required, checked> 남성
             <input type="radio" name="gender_${personCount}" value="female"> 여성
         </p>
+        <p>전공: <input type="text" name="major[]" required></p>
         <p>프로그램 언어:
             <input type="checkbox" name="language[]" value="python"> Python
             <input type="checkbox" name="language[]" value="java"> Java
@@ -64,6 +66,7 @@ function addPerson() {
             <input type="checkbox" name="language[]" value="c"> C
             <input type="checkbox" name="language[]" value="c++"> C++
         </p>
+
     `;
 
     container.appendChild(personBlock);
