@@ -16,7 +16,7 @@
             padding: 15px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            width: 250px;
+            width: 200px;
             text-align: center;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
@@ -36,11 +36,12 @@
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, student_number, gender, languages in students %}
+        {% for name, student_number, gender, major, languages in students %}
             <div class="student-block">
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
+                <p><strong>전공:</strong> {{ major }}</p>
                 <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
             </div>
         {% endfor %}
@@ -51,4 +52,3 @@
     </footer> 
 </body>
 </html>
-
