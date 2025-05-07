@@ -25,8 +25,16 @@
                 <p>이름: <input type="text" name="name[]" required></p>
                 <p>학번: <input type="text" name="StudentNumber[]" required></p>
                 <p>성별:
-                    <input type="radio" name="gender[0]" value="male" required, checked> 남성
-                    <input type="radio" name="gender[0]" value="female"> 여성
+                    <input type="radio" name="gender_0" value="male" required, checked> 남성
+                    <input type="radio" name="gender_0" value="female"> 여성
+                </p>
+                <p>프로그램 언어:
+                    <input type="checkbox" name="language[]" value="python"> Python
+                    <input type="checkbox" name="language[]" value="java"> Java
+                    <input type="checkbox" name="language[]" value="javascript"> JavaScript
+                    <input type="checkbox" name="language[]" value="c"> C
+                    <input type="checkbox" name="language[]" value="c++"> C++
+                    
                 </p>
             </div>
         </div>
@@ -38,8 +46,8 @@
 let personCount = 0;
 
 function addPerson() {
+    personCount++;
     const container = document.getElementById("personContainer");
-
     const personBlock = document.createElement("div");
     personBlock.className = "person-block";
     personBlock.innerHTML = `
@@ -49,10 +57,16 @@ function addPerson() {
             <input type="radio" name="gender_${personCount}" value="male" required, checked> 남성
             <input type="radio" name="gender_${personCount}" value="female"> 여성
         </p>
+        <p>프로그램 언어:
+            <input type="checkbox" name="language[]" value="python"> Python
+            <input type="checkbox" name="language[]" value="java"> Java
+            <input type="checkbox" name="language[]" value="javascript"> JavaScript
+            <input type="checkbox" name="language[]" value="c"> C
+            <input type="checkbox" name="language[]" value="c++"> C++
+        </p>
     `;
 
     container.appendChild(personBlock);
-    personCount++;
 }
 </script>
 </body>
