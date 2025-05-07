@@ -1,16 +1,50 @@
-<!doctype html>
-<html>
-   <body>
-      <table border = "1"> <!-- 표를 생성함 -->
-        <!-- 표를 구성하는 값들은 result라는 parameter에서 가져옴 -->
-        <caption><b>학생 정보</b></caption>
-        {% for key, value in result.items() %} 
-            <tr>
-               <th> {{ key }} </th> <!-- key부분(인덱싱)을 표 왼쪽에 출력-->
-               <td> {{ value }} </td> <!-- value부분(값)을 표 오른쪽에 출력-->
-            </tr>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팀 구성원 정보 출력</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .student-block {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showContactInfo() {
+            alert("긴급전화: 010-1234-5678");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+    </script>
+</head>
+<body>
+    <h1>학생 정보 출력</h1>
+    <div class="container">
+        {% for major in students %}
+            <div class="student-block">
+                <p><strong>전공:</strong> {{ major }}</p>
+            </div>
         {% endfor %}
-     </table> <!-- 표 생성 끝 -->
-   </body>
+    </div>
+    <footer>
+        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
+    </footer> 
+</body>
 </html>
-
