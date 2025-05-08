@@ -30,9 +30,10 @@ def result():
         genders.append(gender_value)
         langs = request.form.getlist(f'language_{i}')
         languages.append(langs)
+    color = request.form.getlist('color[]')
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages))
+    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages,color))
 
 @app.route('/contact')
 def contact_info():
