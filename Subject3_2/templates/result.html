@@ -36,14 +36,14 @@
 <body>
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, student_number, gender, email, major, languages in students %}
+        {% for name, student_number, gender, major, languages, mbti in students %}
             <div class="student-block">
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
-                <p><strong>이메일:</strong> {{ email }}</p>
                 <p><strong>전공:</strong> {{ major }}</p>
                 <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
+                <p><strong>MBTI:</strong> {{ mbti }}</p>
             </div>
         {% endfor %}
     </div>
