@@ -36,6 +36,35 @@
                     <input type="checkbox" name="language_0" value="c"> C
                     <input type="checkbox" name="language_0" value="c++"> C++
                 </p>
+                <p>MBTI:
+                    <select name="mbti[]" required>
+                      <option value="" disabled selected>선택하세요</option>
+                      <optgroup label="분석가">
+                        <option value="INTJ">INTJ</option>
+                        <option value="INTP">INTP</option>
+                        <option value="ENTJ">ENTJ</option>
+                        <option value="ENTP">ENTP</option>
+                      </optgroup>
+                      <optgroup label="외교관">
+                        <option value="INFJ">INFJ</option>
+                        <option value="INFP">INFP</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENFP">ENFP</option>
+                      </optgroup>
+                      <optgroup label="관리자">
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                      </optgroup>
+                      <optgroup label="탐험가">
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                      </optgroup>
+                    </select>
+                </p>                  
             </div>
         </div>
         <button type="button" onclick="addPerson()">추가</button>
@@ -65,6 +94,36 @@ function addPerson() {
             <input type="checkbox" name="language_${personCount}" value="c"> C
             <input type="checkbox" name="language_${personCount}" value="c++"> C++
         </p>
+        <p>MBTI:
+            <select name="mbti[]" required>
+                <option value="" disabled selected>선택하세요</option>
+                <optgroup label="분석가">
+                    <option value="INTJ">INTJ</option>
+                    <option value="INTP">INTP</option>
+                    <option value="ENTJ">ENTJ</option>
+                    <option value="ENTP">ENTP</option>
+                </optgroup>
+                <optgroup label="외교관">
+                    <option value="INFJ">INFJ</option>
+                    <option value="INFP">INFP</option>
+                    <option value="ENFJ">ENFJ</option>
+                    <option value="ENFP">ENFP</option>
+                </optgroup>
+                <optgroup label="관리자">
+                    <option value="ISTJ">ISTJ</option>
+                    <option value="ISFJ">ISFJ</option>
+                    <option value="ESTJ">ESTJ</option>
+                    <option value="ESFJ">ESFJ</option>
+                </optgroup>
+                <optgroup label="탐험가">
+                    <option value="ISTP">ISTP</option>
+                    <option value="ISFP">ISFP</option>
+                    <option value="ESTP">ESTP</option>
+                    <option value="ESFP">ESFP</option>
+                </optgroup>
+            </select>
+        </p>    
+        
 
     `;
 
