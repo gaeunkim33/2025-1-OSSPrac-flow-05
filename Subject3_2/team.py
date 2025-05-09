@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template
+import os
+from flask import Flask, request, render_template, send_from_directory
 
 app = Flask(__name__)
 
@@ -13,6 +14,11 @@ def index():
 def input():
     return render_template('input.html')
 
+@app.route('/image/<path:filename>')
+def serve_image(filename):
+    image_folder = os.path.join(os.path.dirname(__file__), 'image')
+    return send_from_directory(image_folder, filename)
+
 # 제출된 데이터를 처리하여 출력하는 경로
 @app.route('/result', methods=['POST'])
 def result():
@@ -22,6 +28,7 @@ def result():
     email = request.form.getlist('email[]')
     major = request.form.getlist('major[]')
     mbti = request.form.getlist('mbti[]')
+    photos = request.form.getlist('photo[]')
 
     genders = []
     languages = []
@@ -34,7 +41,7 @@ def result():
     color = request.form.getlist('color[]')
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages, color, mbti))
+    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages, color, mbti, photos))
 
 
 if __name__ == '__main__':
