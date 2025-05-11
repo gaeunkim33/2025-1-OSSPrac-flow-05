@@ -23,10 +23,21 @@
         h1 {
             text-align: center;
         }
+        .none-box {
+            width: 150px;
+            height: 150px;
+            background-color: #ffffff;
+            color: #555;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            margin: 0 auto 10px auto;
+        }
     </style>
     <script>
         function showContactInfo() {
-            alert("긴급전화: 010-1234-5678");
+            alert("대표 팀장 번호: 010-1234-5678");
         }
         function openContactPage() {
             window.open("/contact", "contactPage", "width=600,height=400");
@@ -38,7 +49,11 @@
     <div class="container">
         {% for name, student_number, gender, email, major, languages, color, mbti, photo in students %}
         <div class="student-block" style="background-color: {{ color }};">
-                <img src="/image/{{ photo }}" alt="학생 사진" width="150"><br>
+                {% if photo == "None" %}
+                    <div class="none-box">None</div>
+                {% else %}
+                    <img src="/image/{{ photo }}" alt="학생 사진" width="150"><br>
+                {% endif %}
                 <p><strong>이름:</strong> {{ name }}</p>
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>

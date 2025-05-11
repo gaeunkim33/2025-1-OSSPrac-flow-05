@@ -28,7 +28,7 @@ def result():
     email = request.form.getlist('email[]')
     major = request.form.getlist('major[]')
     mbti = request.form.getlist('mbti[]')
-    photos = request.form.getlist('photo[]')
+    color = request.form.getlist('color[]')
 
     genders = []
     languages = []
@@ -38,10 +38,22 @@ def result():
         genders.append(gender_value)
         langs = request.form.getlist(f'language_{i}')
         languages.append(langs)
-    color = request.form.getlist('color[]')
+
+    photo_file = request.files.getlist('photo[]')
+    photo_filename = []
+    image_folder = os.path.join(os.path.dirname(__file__), 'image')
+    os.makedirs(image_folder, exist_ok=True)
+    for i, photo in enumerate(photo_file):
+        if photo and photo.filename:
+            filename = f"{photo.filename}"
+            save_path = os.path.join(image_folder, filename)
+            photo.save(save_path)
+            photo_filename.append(filename)
+        else:
+            photo_filename.append("None")  # 이미지가 없는 경우 텍스트로 처리
 
     # 데이터를 템플릿으로 전달하여 출력 페이지 생성
-    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages, color, mbti, photos))
+    return render_template('result.html', students=zip(names, student_numbers, genders, email, major, languages, color, mbti, photo_filename))
 
 @app.route('/contact')
 def contact():
