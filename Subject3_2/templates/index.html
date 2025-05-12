@@ -3,28 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <title>학생 정보 출력</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .student-block {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h3, h5 {
-            text-align: center;
-        }
-    </style>
     <script>
         function showContactInfo() {
             alert("대표 팀장 번호: 010-1234-5678");
@@ -38,23 +19,22 @@
     </script>
 </head>
 <body>
-    <h1>학생 정보 출력</h1>
-    <div class="container">
-        <div class="student-block">
-            <p><strong>이름:</strong></p>
-            <p><strong>학번:</strong></p>
-            <p><strong>성별:</strong></p>
-            <p><strong>이메일:</strong></p>
-            <p><strong>전공:</strong></p>
-            <p><strong>프로그램 언어:</strong></p>
-            <p><strong>좋아하는 색깔:</strong></p>
-            <p><strong>MBTI:</strong></p>
-        </div>
+    <div class="wrapper">
+        {% include 'layout/header.html' %}
+        <main>
+            <div>
+            <div class="vertical-text left-vertical">
+                김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령
+            </div>
+            <div class="vertical-text right-vertical">
+                김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령
+            </div>
+            
+            <div class="welcome-title">Welcome to <span>flow</span></div>
+            <div class="subtitle">변화를 즐기는 우리 flow처럼 유연하게</div>
+            <button class="join-button" onclick="openInputPage()">팀에 참여하기</button>
+        </main>
+        {% include 'layout/footer.html' %}
     </div>
-    <h3> 팀 구성원 정보 입력 페이지 <button onclick="openInputPage()"> 이동 </button> </h3>
-    <footer>
-        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
-            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-    </footer>
 </body>
 </html>

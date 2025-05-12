@@ -3,38 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
     <title>팀 구성원 정보 출력</title>
-    <style>
-        .container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 20px;
-        }
-        .student-block {
-            background-color: #f9f9f9;
-            padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-        }
-        .none-box {
-            width: 150px;
-            height: 150px;
-            background-color: #ffffff;
-            color: #555;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-            margin: 0 auto 10px auto;
-        }
-    </style>
     <script>
         function showContactInfo() {
             alert("대표 팀장 번호: 010-1234-5678");
@@ -45,6 +16,7 @@
     </script>
 </head>
 <body>
+    {% include 'layout/header.html' %}
     <h1>학생 정보 출력</h1>
     <div class="container">
         {% for name, student_number, gender, email, major, languages, color, mbti, photo in students %}
@@ -64,9 +36,10 @@
             </div>
         {% endfor %}
     </div>
-    <footer>
+
         <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
             <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-    </footer> 
+
+    {% include 'layout/footer.html' %}
 </body>
 </html>

@@ -3,21 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
     <title>학생 정보 입력</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .person-block {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-    </style>
 </head>
 <body>
+    {% include 'layout/header.html' %}
     <h1>학생 정보 입력</h1>
     <form action="/result" method="POST" id="studentForm" enctype="multipart/form-data">
         <div id="personContainer">
@@ -73,6 +64,7 @@
         <button type="button" onclick="addPerson()">추가</button>
         <button type="submit">제출</button>
     </form>
+    {% include 'layout/footer.html' %}
 
     <script>
     let personCount = 0;
