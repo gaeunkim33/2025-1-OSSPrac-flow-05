@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact.css') }}">
+    <title>2025-1-OSSPrac-flow-05</title>
+</head>
+<body>
+    {% include 'layout/header.html' %}
+    <h1>2025-1-OSSPrac-flow-05</h1>
+    <div class="container">
+        <div class="student-block" style="background-color: lightcoral;">
+            <img src="/image/person2.jpg" alt="학생 사진" width="150"><br>
+            <p><strong>이름:</strong> 김가은</p>
+            <p><strong>학번:</strong> 2022110896</p>
+            <p><strong>성별:</strong> 여성</p>
+            <p><strong>이메일:</strong> kge5815@dgu.ac.kr</p>
+            <p><strong>전공:</strong> 국제통상학과</p>
+            <p><strong>프로그램 언어:</strong> python</p>
+            <p><strong>MBTI:</strong> INTP</p>
+        </div>
+
+        <div class="student-block" style="background-color: #98c8ff;">
+            <img src="/image/person3.png" alt="학생 사진" width="150"><br>
+            <p><strong>이름:</strong> 양승경</p>
+            <p><strong>학번:</strong> 2021113132</p>
+            <p><strong>성별:</strong> 여성</p>
+            <p><strong>이메일:</strong> ysgyeong00@dgu.ac.kr</p>
+            <p><strong>전공:</strong> 전자전기공학부</p>
+            <p><strong>프로그램 언어:</strong> python, java, c++</p>
+            <p><strong>MBTI:</strong> ENTP</p>
+        </div>
+
+        <div class="student-block" style="background-color: lightgreen;">
+            <img src="/image/person1.jpg" alt="학생 사진" width="150"><br>
+            <p><strong>이름:</strong> 김용빈</p>
+            <p><strong>학번:</strong> 2023111926</p>
+            <p><strong>성별:</strong> 남성</p>
+            <p><strong>이메일:</strong> yb1553@dgu.ac.kr</p>
+            <p><strong>전공:</strong> 정보통신공학과</p>
+            <p><strong>프로그램 언어:</strong> python, c, c++, javascript</p>
+            <p><strong>MBTI:</strong> ENFJ</p>
+        </div>
+
+        <div class="student-block" style="background-color: lightsalmon;">
+            <img src="/image/person4.jpg" alt="학생 사진" width="150"><br>
+            <p><strong>이름:</strong> 오혜령</p>
+            <p><strong>학번:</strong> 2000000000</p>
+            <p><strong>성별:</strong> 여성</p>
+            <p><strong>이메일:</strong> abcd@dgu.ac.kr</p>
+            <p><strong>전공:</strong> ㅇㅇㅇㅇ과</p>
+            <p><strong>프로그램 언어:</strong> python</p>
+            <p><strong>MBTI:</strong> ㅇㅇㅇㅇ</p>
+        </div>
+    </div>
+    {% include 'layout/footer.html' %}
+</body>
+</html>
