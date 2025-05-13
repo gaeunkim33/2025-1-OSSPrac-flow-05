@@ -59,6 +59,9 @@
     <form action="/result" method="POST" id="studentForm" enctype="multipart/form-data" class="form-container" onsubmit="return submitAndClose(event)">
         <div id="personContainer">
             <div class="person-block">
+                <div class="person-header">
+                    <span>사용자 정보 1</span>
+                </div>
                 <p><span class="label">이름:</span> <input type="text" name="name[]" required placeholder="김동국"></p>
                 <p><span class="label">학번:</span> <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
                 <p><span class="label">성별:</span>
@@ -106,7 +109,10 @@
                     </select>
                 </p>
                 <p><span class="label">좋아하는 색깔:</span> <input type="color" name="color[]" required value="#f9f9f9"></p>
-                <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>              
+                <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>
+                <div class="delete-btn-container">
+                    <button type="delete" class="delete-btn" onclick="deletePerson(this)">삭제</button>
+                </div>
             </div>
         </div>
         <div class="button-container">
@@ -124,6 +130,9 @@
         const personBlock = document.createElement("div");
         personBlock.className = "person-block";
         personBlock.innerHTML = `
+            <div class="person-header">
+                <span>사용자 정보 ${personCount+1}</span>
+            </div>
             <p><span class="label">이름:</span> <input type="text" name="name[]" required placeholder="김동국"></p>
             <p><span class="label">학번:</span> <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
             <p><span class="label">성별:</span>
@@ -171,9 +180,19 @@
             </p>
             <p><span class="label">좋아하는 색깔:</span> <input type="color" name="color[]" required value="#f9f9f9"></p>    
             <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>
+            <div class="delete-btn-container">
+                <button type="delete" class="delete-btn" onclick="deletePerson(this)">삭제</button>
+            </div>
         `;
 
         container.appendChild(personBlock);
+    }
+    
+    function deletePerson(button) {
+        const personBlock = button.closest('.person-block');
+        if (personBlock) {
+            personBlock.remove();
+        }
     }
     </script>
     </body>
