@@ -6,20 +6,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
     <title>팀 구성원 정보 출력</title>
-    <script>
-        function showContactInfo() {
-            alert("대표 팀장 번호: 010-1234-5678");
-        }
-        function openContactPage() {
-            window.open("/contact", "contactPage", "width=600,height=400");
-        }
-    </script>
 </head>
 <body>
     {% include 'layout/header.html' %}
     <h1>학생 정보 출력</h1>
     <div class="container">
-        {% for name, student_number, gender, email, major, languages, color, mbti, photo in students %}
+        {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
         <div class="student-block" style="background-color: {{ color }};">
                 {% if photo == "None" %}
                     <div class="none-box">None</div>
@@ -30,16 +22,13 @@
                 <p><strong>학번:</strong> {{ student_number }}</p>
                 <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
                 <p><strong>이메일:</strong> {{ email }}</p>
+                <p><strong>전화번호:</strong> {{ tel }}</p>
                 <p><strong>전공:</strong> {{ major }}</p>
                 <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
                 <p><strong>MBTI:</strong> {{ mbti }}</p>
             </div>
         {% endfor %}
     </div>
-
-        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
-            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-
     {% include 'layout/footer.html' %}
 </body>
 </html>

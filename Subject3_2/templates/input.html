@@ -20,10 +20,43 @@
             font-size: 50px;
         }
     </style>
+    <script>
+        // 폼 제출 시 부모 창 리다이렉트하고 현재 창 닫기
+        function submitAndClose(event) {
+            event.preventDefault();
+            const form = document.getElementById('studentForm');
+            const formData = new FormData(form);
+            
+            // 폼 데이터 제출
+            fetch('/result', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 부모 창 리다이렉트
+                    if (window.opener) {
+                        window.opener.location.href = '/result';
+                        // 현재 창 닫기
+                        window.close();
+                    } else {
+                        // 팝업이 아닌 경우 현재 창 리다이렉트
+                        window.location.href = '/result';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('제출 중 오류가 발생했습니다.');
+            });
+            
+            return false;
+        }
+    </script>
 </head>
 <body>
     <h1><span class="flow-text">flow</span>에 당신을 연결해주세요😎</h1>
-    <form action="/result" method="POST" id="studentForm" enctype="multipart/form-data" class="form-container">
+    <form action="/result" method="POST" id="studentForm" enctype="multipart/form-data" class="form-container" onsubmit="return submitAndClose(event)">
         <div id="personContainer">
             <div class="person-block">
                 <p><span class="label">이름:</span> <input type="text" name="name[]" required placeholder="김동국"></p>
@@ -137,7 +170,7 @@
                 </select>
             </p>
             <p><span class="label">좋아하는 색깔:</span> <input type="color" name="color[]" required value="#f9f9f9"></p>    
-            <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*" required></p>
+            <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>
         `;
 
         container.appendChild(personBlock);

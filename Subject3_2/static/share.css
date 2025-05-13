@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
 html, body {
   margin: 0;
   padding: 0;
@@ -62,4 +61,27 @@ footer {
   margin-top: auto;
   width: 100%;
   box-sizing: border-box;
+}
+
+footer button {
+  background-color: #ff6b8b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+footer button:hover {
+  background-color: #ff4d73;
+}
+
+.contact-link {
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: normal;
 }
