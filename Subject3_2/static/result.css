@@ -27,14 +27,13 @@ h1 {
   width: 350px;
   height: 450px;
   z-index: 1;
-  opacity: 0;
   animation-duration: 1.5s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
 }
 
-.student-block:nth-child(2),
-.student-block:nth-child(4) {
+.team-member:nth-of-type(2),
+.team-member:nth-of-type(4) {
   margin-top: 70px;
 }
 
@@ -99,30 +98,6 @@ h1 {
   transform: translateX(390px) translateY(-25px) rotate(-135deg);
 }
 
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-.line1 path {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: draw 2s ease forwards;
-  animation-delay: 1s;
-}
-.line2 path {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: draw 2s ease forwards;
-  animation-delay: 3s;
-}
-.line3 path {
-  stroke-dasharray: 300;
-  stroke-dashoffset: 300;
-  animation: draw 2s ease forwards;
-  animation-delay: 5s;
-}
-
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -133,50 +108,10 @@ h1 {
     transform: translateX(0);
   }
 }
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-.student-block:nth-child(1) {
+.animated-block {
   animation-name: fadeInLeft;
-  animation-delay: 0s;
-}
-.student-block:nth-child(2) {
-  animation-name: fadeInUp;
-  animation-delay: 2s;
-}
-.student-block:nth-child(3) {
-  animation-name: fadeInDown;
-  animation-delay: 4s;
-}
-.student-block:nth-child(4) {
-  animation-name: fadeInRight;
-  animation-delay: 6s;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
 }
