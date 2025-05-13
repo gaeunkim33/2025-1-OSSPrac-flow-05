@@ -5,30 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+
     <title>팀 구성원 정보 출력</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <h1>학생 정보 출력</h1>
+    <h1>flow의 새 맴버가 되신 것을 축하합니다</h1>
     <div class="container">
         {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
         <div class="student-block" style="background-color: {{ color }};">
-                {% if photo == "None" %}
-                    <div class="none-box">None</div>
-                {% else %}
-                    <img src="/image/{{ photo }}" alt="학생 사진" width="150"><br>
-                {% endif %}
-                <p><strong>이름:</strong> {{ name }}</p>
-                <p><strong>학번:</strong> {{ student_number }}</p>
-                <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
-                <p><strong>이메일:</strong> {{ email }}</p>
-                <p><strong>전화번호:</strong> {{ tel }}</p>
-                <p><strong>전공:</strong> {{ major }}</p>
-                <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
-                <p><strong>MBTI:</strong> {{ mbti }}</p>
-            </div>
+    {% if photo == "None" %}
+        <div class="none-box">None</div>
+    {% else %}
+        <img src="/image/{{ photo }}" alt="학생 사진" width="150"><br>
+    {% endif %}
+    <div class="new-badge">New</div>
+    <div class="vertical-name">
+        {{ name | list | join('<br>') | safe }}
+    </div>
+    <div class="info">
+        <p><strong>#</strong> {{ student_number }}</p>
+        <p><strong>#</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
+        <p><strong>#</strong> {{ email }}</p>
+        <p><strong>#</strong> {{ tel }}</p>
+        <p><strong>#</strong> {{ major }}</p>
+        <p><strong>#</strong> {{ languages|join(', ') }}</p>
+        <p><strong>#</strong> {{ mbti }}</p>
+    </div>
+</div>
         {% endfor %}
     </div>
-    {% include 'layout/footer.html' %}
-</body>
-</html>
+    <br><br><br><img src="/image/main.png" class="rotated-main">
+    <div class="container">
+        <div class="student-block" style="background-color: #F5A9BC;">
+            <img src="/image/leader.png" class="rotated-leader">
+            <div class="vertical-name">김<br>가<br>은</div>
+            <img src="/image/person2.png" alt="학생 사진" class="indented-img">
+            <div class="info">
+                <p># 2022110896</p>
+                <p># 여성</p>
+                <p># kge5815@dgu.ac.kr</p>
+                <p># 국제통상학과</p>
+                <p># python</p>
+                <p># 분석가 INTP</p>
+            </div>
+        </div>
+
+        <div class="student-block" style="background-color: #6bc67d;">
+            <div class="vertical-name">김<br>용<br>빈</div>
+            <img src="/image/person1.png" alt="학생 사진" width="300" class="indented-img">
+            <div class="info">
+                <p># 2023111926</p>
+                <p># 남성</p>
+                <p># yb1553@dgu.ac.kr</p>
+                <p># 정보통신공학과</p>
+                <p># python, javascript, c, c++</p>
+                <p># 외교관 ENFJ</p>
+            </div>
+        </div>
+        
+        <div class="student-block" style="background-color: #98c8ff;">
+            <div class="vertical-name">양<br>승<br>경</div>
+            <img src="/image/person3.png" alt="학생 사진" width="300" class="indented-img">
+            <div class="info">
+                <p># 2021113132</p>
+                <p># 여성</p>
+                <p># ysgyeong00@dgu.ac.kr</p>
+                <p># 전자전기공학부</p>
+                <p># python, java, c++</p>
+                <p># 분석가 ENTP</p>
+            </div>
+        </div>
+
+        <div class="student-block" style="background-color:rgb(236, 61, 255);">
+            <div class="vertical-name">오<br>혜<br>령</div>
+            <img src="/image/person4.png" alt="학생 사진" width="300" class="indented-img">
+            <div class="info">
+                <p># 2023110466</p>
+                <p># 여성</p>
+                <p># 2023110466@dgu.ac.kr</p>
+                <p># 통계학과</p>
+                <p># python</p>
+                <p># 관리자 ISTJ</p>
+            </div>
+        </div>
+    </div>
+
+        <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
+            <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
