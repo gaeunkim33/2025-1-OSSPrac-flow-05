@@ -48,6 +48,10 @@ form {
     border: 2px solid #f8c8d8;
 }
 
+.person-block p {
+    color: #8B4513;
+}
+
 /* 라벨-입력 행 스타일링 */
 .form-row {
     margin: 15px 0;
@@ -69,14 +73,65 @@ form {
 }
 
 /* 일반 입력 필드 스타일 */
-.input-field {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    border: none;
+    box-shadow: none;
     border-radius: 0px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #f7f8eb;
     box-sizing: border-box;
+    border-radius: 5px;
+}
+
+/* 공통 스타일 - 기본 버튼 숨기고, 라벨로 꾸밈 */
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;           /* 브라우저 기본 스타일 제거 */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #f7f8eb;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+    vertical-align: middle;
+    position: relative;
+}
+
+/* 선택되었을 때 색상 */
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    background-color: #ff6b8b;
+}
+
+/* 안쪽 점(라디오 버튼용) */
+input[type="radio"]:checked::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #f7f8eb;
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+/* 안쪽 체크 표시(체크박스용) */
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
 }
 
 .radio-group {
@@ -92,7 +147,7 @@ form {
 
 .radio-group input[type="radio"] {
     margin-right: 5px;
-    accent-color: #ff6b6b;
+    accent-color: #ff6b8b;
 }
 
 /* 체크박스 그룹 */
