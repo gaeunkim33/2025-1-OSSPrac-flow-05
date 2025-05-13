@@ -38,9 +38,17 @@ header nav a {
   color: #333;
 }
 header .logo {
+  display: flex; 
   font-size: 24px;
   font-weight: bold;
-  color: #f66;
+  color: #FF6495;
+  text-align: left;
+  font-family: 'Jockey One', sans-serif;
+  gap: 2px; 
+}
+header .logo img {
+  height: 17px;
+  object-fit: contain;
 }
 
 /* footer 스타일 */

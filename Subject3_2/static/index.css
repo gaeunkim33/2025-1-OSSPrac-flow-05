@@ -23,8 +23,15 @@ main {
 }
 
 .welcome-title span {
-  color: #f26a8d;
+  color: #FF6495;
   font-family: 'Jockey One', sans-serif;
+  gap: 1px
+}
+
+.welcome-title img {
+  height: 60px;
+  object-fit: contain;
+  transform: translateY(-20px)
 }
 
 .subtitle {
