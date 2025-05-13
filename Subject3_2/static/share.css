@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
 html, body {
   margin: 0;
   padding: 0;
@@ -40,7 +41,9 @@ header nav a {
 header .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #f66;
+  color: #FF6495;
+  text-align: left;
+  font-family: 'Jockey One', sans-serif;
 }
 
 /* footer 스타일 */
