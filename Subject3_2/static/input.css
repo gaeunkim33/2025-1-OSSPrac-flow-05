@@ -48,9 +48,9 @@ form {
     margin-bottom: 20px;
 }
 
-
 .person-block p {
     color: #8B4513;
+}
 
 .form-row {
     margin: 15px 0;
@@ -162,6 +162,7 @@ input[type="checkbox"]:checked::after {
     text-align: left;
     margin-top: 20px;
     margin-left: 0;
+    margin-bottom: 60px;
     padding-left: 0px; 
 }
 

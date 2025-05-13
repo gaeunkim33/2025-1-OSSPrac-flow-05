@@ -1,9 +1,11 @@
 <header>
   <div class="container">
-    <div class="logo">
-      <span>flow</span>
-      <img src="../image/flow.png" alt="Flow logo">
-    </div>
+    <a href="{{ url_for('index') }}" class="logo-link">
+      <div class="logo">
+        <span>flow</span>
+        <img src="../image/flow.png" alt="Flow logo">
+      </div>
+    </a>
     <nav>
       <ul>
         <li><a href="{{ url_for('index') }}">Home</a></li>
