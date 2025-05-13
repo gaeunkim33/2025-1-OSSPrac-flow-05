@@ -11,7 +11,11 @@
 </head>
 <body>
     {% include 'layout/header.html' %}
-    <h1>flow의 새 맴버가 되신 것을 축하합니다</h1>
+
+    {% if students %}
+    <h1 class=welcome-message><span>flow</span> 의  새 멤버가 되신 것을 축하합니다.✨</h1>
+    {% endif %}
+    
     <div class="container">
         {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
         <div class="student-block" style="background-color: {{ color }};">
