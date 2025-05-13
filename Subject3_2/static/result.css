@@ -1,22 +1,40 @@
-.container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+.student-block img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
-.student-block {
+.info {
+    position: absolute;
+    bottom: 20px;
+    left: 5px;
+}
+
+.info p {
+    text-align: left;
+    margin: 3px 0;
+    color: white;
+    word-wrap: break-word;
+    width: 300px;
+}
+
+
+.new-badge {
     background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 350px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
+    color: #000000;
+    font-weight: bold;
+    padding: 8px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    position: absolute;
+    top: 220px;
+    right: 20px;
 }
 
 .none-box {
@@ -29,4 +47,175 @@ h1 {
     align-items: center;
     border-radius: 5px;
     margin: 0 auto 10px auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.container {
+  display: flex;
+  grid-template-columns: repeat(4, 350px);
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.student-block {
+  position: relative;
+  border-radius: 50px;
+  width: 350px;
+  height: 450px;
+  z-index: 1;
+  opacity: 0;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.student-block:nth-child(2),
+.student-block:nth-child(4) {
+  margin-top: 70px;
+}
+
+.info p {
+  text-align: left;
+  text-indent: 100px;
+  color: white;
+  margin: 3px;
+}
+
+.indented-img {
+  display: block;
+  margin-left: 60px;
+  margin-bottom: -20px;
+  width: 400px;
+}
+
+.vertical-name {
+  position: absolute;
+  color: white;
+  font-size: 70px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-top: 150px;
+}
+
+.rotated-main {
+  transform: translateX(-600px);
+  transform-origin: center;
+  display: block;
+  margin: 0 auto;
+  width: 180px;
+}
+
+.rotated-leader {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width : 1px
+}
+
+.line {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  z-index: 0;
+}
+.line1 {
+  transform-origin: center;
+  transform: translateX(-350px) translateY(-25px) rotate(-135deg);
+}
+.line2 {
+  transform-origin: center;
+  transform: translateX(15px) translateY(440px) rotate(-45deg);
+}
+.line3 {
+  transform-origin: center;
+  transform: translateX(390px) translateY(-25px) rotate(-135deg);
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.line1 path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw 2s ease forwards;
+  animation-delay: 1s;
+}
+.line2 path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw 2s ease forwards;
+  animation-delay: 3s;
+}
+.line3 path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: draw 2s ease forwards;
+  animation-delay: 5s;
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.student-block:nth-child(1) {
+  animation-name: fadeInLeft;
+  animation-delay: 0s;
+}
+.student-block:nth-child(2) {
+  animation-name: fadeInUp;
+  animation-delay: 2s;
+}
+.student-block:nth-child(3) {
+  animation-name: fadeInDown;
+  animation-delay: 4s;
+}
+.student-block:nth-child(4) {
+  animation-name: fadeInRight;
+  animation-delay: 6s;
 }
