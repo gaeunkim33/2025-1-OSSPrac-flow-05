@@ -32,6 +32,19 @@ h1 {
   animation-timing-function: ease-out;
 }
 
+.grid-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 350px);
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
 .team-member:nth-of-type(2),
 .team-member:nth-of-type(4) {
   margin-top: 70px;
