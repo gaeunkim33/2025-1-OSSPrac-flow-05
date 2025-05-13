@@ -6,17 +6,62 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 350px);
+    grid-template-columns: repeat(4, 350px);
     justify-content: center;
-    gap: 30px 60px;
-    padding: 20px;
+    gap: 20px;
+    padding-bottom: 20px;
 }
 
 .student-block {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    position: relative;
+    border-radius: 50px;
     width: 350px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    height: 450px;
+}
+
+.student-block:nth-child(2),
+.student-block:nth-child(4) {
+  margin-top: 70px;
+}
+
+.info p {
+    text-align: left;
+    text-indent: 120px;
+    color: white;
+    margin: 3px;
+}
+
+.indented-img {
+  display: block;
+  margin-left: 60px;
+  margin-bottom: -20px;
+  width: 300px;
+}
+
+.vertical-name {
+  position: absolute;
+  color: white;
+  font-size: 70px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-top: 150px;
+}
+
+.rotated-main {
+    transform: translateX(-600px);
+    transform-origin: center;
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+}
+
+.rotated-leader {
+    position: absolute;
+    transform-origin: center;
+    display: block;
+    margin: 0 auto;
+    width: 90px;
+    margin-left: 10px;
+    margin-top: 30px;
 }
