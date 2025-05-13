@@ -12,6 +12,7 @@
     position: absolute;
     bottom: 20px;
     left: 5px;
+}
 
 .container {
     display: flex;
@@ -23,17 +24,6 @@
     margin: 0 auto;
 }
 
-.student-block {
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
 .info p {
     text-align: left;
     margin: 3px 0;
@@ -41,7 +31,6 @@
     word-wrap: break-word;
     width: 300px;
 }
-
 
 .new-badge {
     background-color: #f9f9f9;
@@ -58,12 +47,6 @@
 }
 
 .none-box {
-    width: 150px;
-    height: 150px;
-    background-color: #ffffff;
-    color: #555;
-    display: flex;
-    justify-content: center;
     align-items: center;
     border-radius: 5px;
     margin: 0 auto 10px auto;
@@ -134,9 +117,8 @@ h1 {
 
 .rotated-leader {
   position: absolute;
-  width: 40px;
-  height: auto;
-  left : 0;
+  top: 0px;
+  left: 0px;
 }
 
 .line {
