@@ -114,9 +114,9 @@ h1 {
 
 .rotated-leader {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  width : 1px
+  width: 40px;
+  height: auto;
+  left : 0;
 }
 
 .line {

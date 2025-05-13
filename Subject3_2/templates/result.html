@@ -32,12 +32,13 @@
         {{ name | list | join('<br>') | safe }}
     </div>
     <div class="info">
-        <p><strong>학번:</strong> {{ student_number }}</p>
-        <p><strong>성별:</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
-        <p><strong>이메일:</strong> {{ email }}</p>
-        <p><strong>전공:</strong> {{ major }}</p>
-        <p><strong>프로그램 언어:</strong> {{ languages|join(', ') }}</p>
-        <p><strong>MBTI:</strong> {{ mbti }}</p>
+        <p><strong>#</strong> {{ student_number }}</p>
+        <p><strong>#</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
+        <p><strong>#</strong> {{ email }}</p>
+        <p><strong>#</strong> {{ tel }}</p>
+        <p><strong>#</strong> {{ major }}</p>
+        <p><strong>#</strong> {{ languages|join(', ') }}</p>
+        <p><strong>#</strong> {{ mbti }}</p>
     </div>
 </div>
         {% endfor %}
@@ -45,7 +46,7 @@
     <br><br><br><img src="/image/main.png" class="rotated-main">
     <div class="container">
         <div class="student-block" style="background-color: #F5A9BC;">
-            <img src="/image/leader.png" class="rotated-leader">
+            <img src="/image/leader (1).png" class="rotated-leader">
             <div class="vertical-name">김<br>가<br>은</div>
             <img src="/image/person2.png" alt="학생 사진" class="indented-img">
             <div class="info">
@@ -60,7 +61,7 @@
 
         <div class="student-block" style="background-color: #6bc67d;">
             <div class="vertical-name">김<br>용<br>빈</div>
-            <img src="/image/person1.jpg" alt="학생 사진" width="300" class="indented-img">
+            <img src="/image/person1.png" alt="학생 사진" width="300" class="indented-img">
             <div class="info">
                 <p># 2023111926</p>
                 <p># 남성</p>
