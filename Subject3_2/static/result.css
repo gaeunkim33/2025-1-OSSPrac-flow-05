@@ -1,68 +1,7 @@
-.student-block img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 15px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.info {
-    position: absolute;
-    bottom: 20px;
-    left: 5px;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1500px;
-    margin: 0 auto;
-}
-
-.info p {
-    text-align: left;
-    margin: 3px 0;
-    color: white;
-    word-wrap: break-word;
-    width: 300px;
-}
-
-.new-badge {
-    background-color: #f9f9f9;
-    color: #000000;
-    font-weight: bold;
-    padding: 8px 20px;
-    border-radius: 30px;
-    display: inline-block;
-    margin-top: 10px;
-    font-size: 14px;
-    position: absolute;
-    top: 220px;
-    right: 20px;
-}
-
-.none-box {
-    align-items: center;
-    border-radius: 5px;
-    margin: 0 auto 10px auto;
-}
-
+/* contact page 스타일 */
 h1 {
   text-align: center;
   margin-top: 30px;
-}
-.welcome-message{
-  font-size: 30px;
-  color: #985605;
-}
-.welcome-message span{
-  font-size: 50px;
-  font-family: 'Jockey One', sans-serif
 }
 
 .container {
@@ -93,7 +32,7 @@ h1 {
 
 .info p {
   text-align: left;
-  text-indent: 100px;
+  text-indent: 120px;
   color: white;
   margin: 3px;
 }
@@ -102,7 +41,7 @@ h1 {
   display: block;
   margin-left: 60px;
   margin-bottom: -20px;
-  width: 400px;
+  width: 300px;
 }
 
 .vertical-name {
@@ -125,8 +64,12 @@ h1 {
 
 .rotated-leader {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  transform-origin: center;
+  display: block;
+  margin: 0 auto;
+  width: 90px;
+  margin-left: 10px;
+  margin-top: 30px;
 }
 
 .line {

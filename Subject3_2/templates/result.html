@@ -6,40 +6,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
-
     <title>팀 구성원 정보 출력</title>
 </head>
 <body>
     {% include 'layout/header.html' %}
-
     {% if students %}
-    <h1 class=welcome-message><span>flow</span> 의  새 멤버가 되신 것을 축하합니다.✨</h1>
+    <h1 class="welcome-message"><span>flow</span> 의 새 멤버가 되신 것을 축하합니다.✨</h1>
     {% endif %}
-    
+
     <div class="container">
         {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
-        <div class="student-block" style="background-color: {{ color }};">
-    {% if photo == "None" %}
-        <div class="none-box">None</div>
-    {% else %}
-        <img src="/image/{{ photo }}" alt="학생 사진" width="150"><br>
-    {% endif %}
-    <div class="new-badge">New</div>
-    <div class="vertical-name">
-        {{ name | list | join('<br>') | safe }}
-    </div>
-    <div class="info">
-        <p><strong>#</strong> {{ student_number }}</p>
-        <p><strong>#</strong> {{ '남성' if gender == 'male' else '여성' }}</p>
-        <p><strong>#</strong> {{ email }}</p>
-        <p><strong>#</strong> {{ tel }}</p>
-        <p><strong>#</strong> {{ major }}</p>
-        <p><strong>#</strong> {{ languages|join(', ') }}</p>
-        <p><strong>#</strong> {{ mbti }}</p>
-    </div>
-</div>
+        <div class="student-block" style="background-color: {{ color }}">
+            <div class="vertical-name">{% for char in name %}{{ char }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div>
+            <img src="/image/{{ photo }}" alt="학생 사진" class="indented-img">
+            <div class="info">
+                <p># {{ student_number }}</p>
+                <p># {{ gender }}</p>
+                <p># {{ email }}</p>
+                <p># {{ major }}</p>
+                <p># {{ languages|join(', ') }}</p>
+                <p># {{ mbti }}</p>
+            </div>
+        </div>
         {% endfor %}
+        
+ 
     </div>
+
     <br><br><br><img src="/image/main.png" class="rotated-main">
     <div class="container">
         <div class="student-block" style="background-color: #F5A9BC;">
@@ -94,7 +87,18 @@
                 <p># 관리자 ISTJ</p>
             </div>
         </div>
-  {% include 'layout/footer.html' %}
-</body>
 
+        <svg class="line line1" viewBox="0 0 100 100">
+            <path d="M 100 20 Q 50 60 0 20" stroke="#F5A9BC" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="line line2" viewBox="0 0 100 100">
+            <path d="M 0 20 Q 50 60 100 20" stroke="#6bc67d" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg class="line line3" viewBox="0 0 100 100">
+            <path d="M 100 20 Q 50 60 0 20" stroke="#98c8ff" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    
+    {% include 'layout/footer.html' %}
+</body>
 </html>
