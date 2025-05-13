@@ -3,11 +3,10 @@ html, body {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #ffe6ee; /* 핑크색 배경 */
+    background-color: #FFE0E5; 
     position: relative;
 }
 
-/* 플로우 이미지 배경 */
 body::after {
     content: "";
     position: fixed;
@@ -19,64 +18,110 @@ body::after {
     background-size: 40% auto;
     background-position: right bottom;
     background-repeat: no-repeat;
-    opacity: 0.5; /* 투명도 높임 */
-    z-index: 0; /* z-index 수정 */
-    pointer-events: none; /* 클릭 이벤트가 이미지를 통과하도록 함 */
-    filter: hue-rotate(340deg) saturate(1.2); /* 색상 더 선명하게 */
+    opacity: 0.5; 
+    z-index: 0; 
+    pointer-events: none; 
+    filter: hue-rotate(340deg) saturate(1.2); 
 }
 
 h1 {
     text-align: center;
-    color: #8B4513; /* 브라운 색상의 제목 */
+    color: #8B4513; 
     margin-top: 40px;
     font-size: 36px;
-    position: relative; /* 상대적 위치 지정 */
-    z-index: 1; /* 배경 이미지보다 위에 표시 */
+    position: relative; 
+    z-index: 1; 
 }
 
 form {
     max-width: 700px;
     margin: 0 auto;
     position: relative;
-    z-index: 1; /* 배경 이미지보다 위에 표시 */
+    z-index: 1; 
 }
 
 .person-block {
-    background-color: transparent; /* 배경색 투명 처리 */
+    background-color: transparent; 
     border-radius: 20px;
     padding: 20px 30px;
-    border: 2px solid #f8c8d8;
+    border: 2px solid #ffd0d8;
+    margin-bottom: 20px;
 }
 
-/* 라벨-입력 행 스타일링 */
+
+.person-block p {
+    color: #8B4513;
+
 .form-row {
     margin: 15px 0;
     display: flex;
     align-items: center;
 }
 
-/* 라벨 스타일링 */
 .label-text {
-    width: 140px; /* 라벨 너비 고정 */
-    text-align: right; /* 라벨 텍스트 오른쪽 정렬 */
+    width: 140px;
+    text-align: right; 
     padding-right: 10px;
     font-size: 16px;
 }
 
-/* 입력 필드 컨테이너 */
 .input-wrapper {
-    width: calc(100% - 160px); /* 전체 너비에서 라벨 너비와 여백 제외 */
+    width: calc(100% - 160px); 
 }
 
-/* 일반 입력 필드 스타일 */
 .input-field {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    box-shadow: inset -2px 3px 0px rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    border: none;
+    box-shadow: none;
     border-radius: 0px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: #f7f8eb;
     box-sizing: border-box;
+    border-radius: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    appearance: none;          
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    background-color: #f7f8eb;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+    vertical-align: middle;
+    position: relative;
+}
+
+input[type="radio"]:checked,
+input[type="checkbox"]:checked {
+    background-color: #ff6b8b;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background: #f7f8eb;
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}
+
+/* 안쪽 체크 표시(체크박스용) */
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 13px;
+    position: absolute;
+    top: 1px;
+    left: 4px;
 }
 
 .radio-group {
@@ -92,10 +137,9 @@ form {
 
 .radio-group input[type="radio"] {
     margin-right: 5px;
-    accent-color: #ff6b6b;
+    accent-color: #ff6b8b;
 }
 
-/* 체크박스 그룹 */
 .checkbox-group {
     display: flex;
     flex-wrap: wrap;
@@ -113,10 +157,12 @@ form {
     accent-color: #ff6b6b;
 }
 
-/* 버튼 스타일 */
+
 .button-container {
-    text-align: center;
+    text-align: left;
     margin-top: 20px;
+    margin-left: 0;
+    padding-left: 0px; 
 }
 
 button {
@@ -124,25 +170,40 @@ button {
     color: white;
     border: none;
     padding: 10px 20px;
-    margin: 0px 5px;
+    margin: 0px 5px 0px 0px; 
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: all 0.2s;
+    position: relative;
+    top: 0;
 }
 
 button:hover {
-    background-color: #ff4d73;
+    box-shadow: inset -3px 3px 8px rgba(0, 0, 0, 0.3);
+    top: 1px;
 }
 
-/* p 태그 내의 라벨 텍스트를 오른쪽 정렬하기 위한 스타일 */
+button:active {
+    box-shadow: inset -1px 1px 3px rgba(0, 0, 0, 0.1);
+    top: 2px;
+}
+
+button[type="submit"] {
+    background-color: #ff6495;
+}
+
+button[type="button"] {
+    background-color: #f9bdc7;
+}
+
+
 .person-block p {
     display: flex;
     align-items: center;
     margin: 15px 0;
 }
 
-/* 서식 유지를 위한 추가 스타일 */
 .person-block input[type="text"],
 .person-block input[type="tel"],
 .person-block input[type="email"],
@@ -163,13 +224,11 @@ button:hover {
     margin-right: 5px;
 }
 
-/* MBTI 선택 박스 너비 조정 */
 .person-block select[name="mbti[]"] {
     width: 200px;
     flex: none;
 }
 
-/* 색상 선택기 너비 조정 */
 .person-block input[type="color"] {
     width: 100px;
     height: 30px;

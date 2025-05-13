@@ -7,20 +7,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
 
     <title>팀 구성원 정보 출력</title>
-    <script>
-        function showContactInfo() {
-            alert("대표 팀장 번호: 010-1234-5678");
-        }
-        function openContactPage() {
-            window.open("/contact", "contactPage", "width=600,height=400");
-        }
-    </script>
 </head>
 <body>
     {% include 'layout/header.html' %}
     <h1>flow의 새 맴버가 되신 것을 축하합니다</h1>
     <div class="container">
-        {% for name, student_number, gender, email, major, languages, color, mbti, photo in students %}
+        {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
         <div class="student-block" style="background-color: {{ color }};">
     {% if photo == "None" %}
         <div class="none-box">None</div>
@@ -46,7 +38,7 @@
     <br><br><br><img src="/image/main.png" class="rotated-main">
     <div class="container">
         <div class="student-block" style="background-color: #F5A9BC;">
-            <img src="/image/leader (1).png" class="rotated-leader">
+            <img src="/image/leader.png" class="rotated-leader">
             <div class="vertical-name">김<br>가<br>은</div>
             <img src="/image/person2.png" alt="학생 사진" class="indented-img">
             <div class="info">
@@ -101,7 +93,3 @@
 
         <h5>📞 안내: <button onclick="showContactInfo()"> 팀 긴급연락</button> 
             <button onclick="openContactPage()"> 팀 연락정보</button> </h5>
-
-    {% include 'layout/footer.html' %}
-</body>
-</html>

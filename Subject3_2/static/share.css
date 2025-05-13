@@ -19,8 +19,8 @@ header {
   border-bottom: 1px solid #eee;
 }
 header .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -38,9 +38,17 @@ header nav a {
   color: #333;
 }
 header .logo {
+  display: flex; 
   font-size: 24px;
   font-weight: bold;
-  color: #f66;
+  color: #FF6495;
+  text-align: left;
+  font-family: 'Jockey One', sans-serif;
+  gap: 2px; 
+}
+header .logo img {
+  height: 17px;
+  object-fit: contain;
 }
 
 /* footer 스타일 */
@@ -53,4 +61,27 @@ footer {
   margin-top: auto;
   width: 100%;
   box-sizing: border-box;
+}
+
+footer button {
+  background-color: #ff6b8b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+footer button:hover {
+  background-color: #ff4d73;
+}
+
+.contact-link {
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: normal;
 }
