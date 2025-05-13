@@ -4,6 +4,14 @@ h1 {
   margin-top: 30px;
 }
 
+.welcome-message{
+  color:#985605
+}
+.welcome-message span{
+  font-family: 'Jockey One', sans-serif;
+  font-size: 50px
+}
+
 .container {
   display: flex;
   grid-template-columns: repeat(4, 350px);
