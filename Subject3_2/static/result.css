@@ -12,6 +12,7 @@
     position: absolute;
     bottom: 20px;
     left: 5px;
+}
 
 .container {
     display: flex;
@@ -72,6 +73,14 @@
 h1 {
   text-align: center;
   margin-top: 30px;
+}
+.welcome-message{
+  font-size: 30px;
+  color: #985605;
+}
+.welcome-message span{
+  font-size: 50px;
+  font-family: 'Jockey One', sans-serif
 }
 
 .container {
