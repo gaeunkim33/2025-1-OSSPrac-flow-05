@@ -39,10 +39,11 @@ h1 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(4, 350px);
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  justify-items: center;
+  place-items: center;
   gap: 20px;
-  padding-bottom: 20px;
+  width: 100%;
 }
 
 .team-member:nth-of-type(2),
