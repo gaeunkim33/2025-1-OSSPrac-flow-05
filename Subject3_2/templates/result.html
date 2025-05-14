@@ -14,24 +14,24 @@
     <h1 class="welcome-message"><span>flow</span> 의 새 멤버가 되신 것을 축하합니다.✨</h1>
     {% endif %}
 
-    <div class="grid-wrapper">
-        <div class="container grid-container">
-            {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
-            <div class="student-block animated-block" style="background-color: {{ color }}">
-                <div class="vertical-name">{% for char in name %}{{ char }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div>
-                <img src="/image/{{ photo }}" alt="학생 사진" class="indented-img">
-                <div class="info">
-                    <p># {{ student_number }}</p>
-                    <p># {{ gender }}</p>
-                    <p># {{ email }}</p>
-                    <p># {{ major }}</p>
-                    <p># {{ languages|join(', ') }}</p>
-                    <p># {{ mbti }}</p>
-                </div>
+
+    <div class="container grid-container">
+        {% for name, student_number, gender, email, major, languages, color, mbti, photo, tel in students %}
+        <div class="student-block animated-block" style="background-color: {{ color }}">
+            <div class="vertical-name">{% for char in name %}{{ char }}{% if not loop.last %}<br>{% endif %}{% endfor %}</div>
+            <img src="/image/{{ photo }}" alt="학생 사진" class="indented-img">
+            <div class="info">
+                <p># {{ student_number }}</p>
+                <p># {{ gender }}</p>
+                <p># {{ email }}</p>
+                <p># {{ major }}</p>
+                <p># {{ languages|join(', ') }}</p>
+                <p># {{ mbti }}</p>
             </div>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
+
 
     <br><br><br><img src="/image/main.png" class="rotated-main">
     <div class="container">

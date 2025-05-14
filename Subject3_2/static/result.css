@@ -38,12 +38,12 @@ h1 {
 }
 
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  justify-items: center;
-  place-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 핵심: 항상 중앙 정렬 */
   gap: 20px;
-  width: 100%;
+  max-width: calc(350px * 4 + 20px * 3); /* 최대 너비 제한 */
+  margin: 0 auto;
 }
 
 .team-member:nth-of-type(2),
