@@ -32,11 +32,6 @@ h1 {
   animation-timing-function: ease-out;
 }
 
-.grid-wrapper {
-  position: relative;
-  width: 100%;
-}
-
 .grid-container {
   display: flex;
   flex-wrap: wrap;
