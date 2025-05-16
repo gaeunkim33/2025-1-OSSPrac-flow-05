@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <title>학생 정보 출력</title>
+    <script>
+        function showContactInfo() {
+            alert("대표 팀장 번호: 010-1234-5678");
+        }
+        function openContactPage() {
+            window.open("/contact", "contactPage", "width=600,height=400");
+        }
+        function openInputPage() {
+            window.open("/input", "InputPage", "width=800,height=600");
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        {% include 'layout/header.html' %}
+        <main>
+            <div>
+            <div class="vertical-text left-vertical">
+                김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령
+            </div>
+            <div class="vertical-text right-vertical">
+                김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령 김가은 김용빈 양승경 오혜령
+            </div>
+            
+
+            <div class="welcome-title">Welcome to <span>flow</span><img src="../image/flow.png" alt="Flow logo"></div>
+            <div class="subtitle">변화를 즐기는 우리 flow처럼 유연하게</div>
+            <button class="join-button" onclick="openInputPage()">팀에 참여하기</button>
+        </main>
+        {% include 'layout/footer.html' %}
+    </div>
+</body>
+</html>
