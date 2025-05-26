@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f8eb;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  /* min-height: 100vh; */
+}
+
+/* header 스타일 */
+header {
+  background-color: white;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+header .container {
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+header nav a {
+  text-decoration: none;
+  color: #333;
+}
+header .logo {
+  display: flex; 
+  font-size: 30px;
+  font-weight: bold;
+  color: #FF6495;
+  text-align: left;
+  font-family: 'Jockey One', sans-serif;
+  gap: 2px; 
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+header .logo img {
+  height: 17px;
+  object-fit: contain;
+}
+
+/* footer 스타일 */
+footer {
+  background-color: #ffe6ee;
+  padding: 30px 0;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+footer button {
+  background-color: #ff6b8b;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+footer button:hover {
+  background-color: #ff4d73;
+}
+
+.contact-link {
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: normal;
+}
