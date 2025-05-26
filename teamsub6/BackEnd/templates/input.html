@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='share.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+    <title>학생 정보 입력</title>
+    <style>
+        .label {
+            width: 140px;
+            text-align: right;
+            padding-right: 5px;
+            display: inline-block;
+        }
+        .flow-text {
+            font-family: 'Jockey One', sans-serif;
+            color: #ff4d73;
+            font-size: 50px;
+        }
+    </style>
+    <script>
+        // 폼 제출 시 부모 창 리다이렉트하고 현재 창 닫기
+        function submitAndClose(event) {
+            event.preventDefault();
+            const form = document.getElementById('studentForm');
+            const formData = new FormData(form);
+            
+            // 폼 데이터 제출
+            fetch('/result', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // 부모 창 리다이렉트
+                    if (window.opener) {
+                        window.opener.location.href = '/result';
+                        // 현재 창 닫기
+                        window.close();
+                    } else {
+                        // 팝업이 아닌 경우 현재 창 리다이렉트
+                        window.location.href = '/result';
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('제출 중 오류가 발생했습니다.');
+            });
+            
+            return false;
+        }
+    </script>
+</head>
+<body>
+    <h1><span class="flow-text">flow</span>에 당신을 연결해주세요😎</h1>
+    <form action="/result" method="POST" id="studentForm" enctype="multipart/form-data" class="form-container" onsubmit="return submitAndClose(event)">
+        <div id="personContainer">
+            <div class="person-block">
+                <div class="person-header">
+                </div>
+                <p><span class="label">이름:</span> <input type="text" name="name[]" required placeholder="김동국"></p>
+                <p><span class="label">학번:</span> <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
+                <p><span class="label">성별:</span>
+                    <input type="radio" name="gender_0" value="male" required, checked> 남성
+                    <input type="radio" name="gender_0" value="female"> 여성
+                </p>
+                <p><span class="label">전화번호:</span> <input type="tel" name="tel[]" required placeholder="010-1234-5678"></p>
+                <p><span class="label">이메일:</span> <input type="email" name="email[]" required placeholder="example@dgu.ac.kr"></p>
+                <p><span class="label">전공:</span> <input type="text" name="major[]" required placeholder="컴퓨터공학과"></p>
+                
+                <p><span class="label">프로그램 언어:</span>
+                    <input type="checkbox" name="language_0" value="python"> Python
+                    <input type="checkbox" name="language_0" value="java"> Java
+                    <input type="checkbox" name="language_0" value="javascript"> JavaScript
+                    <input type="checkbox" name="language_0" value="c"> C
+                    <input type="checkbox" name="language_0" value="c++"> C++
+                </p>
+                <p><span class="label">MBTI:</span>
+                    <select name="mbti[]" required>
+                      <option value="" disabled selected>선택하세요</option>
+                      <optgroup label="분석가">
+                        <option value="INTJ">INTJ</option>
+                        <option value="INTP">INTP</option>
+                        <option value="ENTJ">ENTJ</option>
+                        <option value="ENTP">ENTP</option>
+                      </optgroup>
+                      <optgroup label="외교관">
+                        <option value="INFJ">INFJ</option>
+                        <option value="INFP">INFP</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENFP">ENFP</option>
+                      </optgroup>
+                      <optgroup label="관리자">
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                      </optgroup>
+                      <optgroup label="탐험가">
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                      </optgroup>
+                    </select>
+                </p>
+                <p><span class="label">좋아하는 색깔:</span> <input type="color" name="color[]" required value="#f9f9f9"></p>
+                <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>
+                <div class="delete-btn-container">
+                    <button type="delete" class="delete-btn" onclick="deletePerson(this)">삭제</button>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="addPerson()">추가</button>
+            <button type="submit">제출</button>
+        </div>
+    </form>
+
+    <script>
+    let personCount = 0;
+
+    function addPerson() {
+        personCount++;
+        const container = document.getElementById("personContainer");
+        const personBlock = document.createElement("div");
+        personBlock.className = "person-block";
+        personBlock.innerHTML = `
+            <div class="person-header">
+            </div>
+            <p><span class="label">이름:</span> <input type="text" name="name[]" required placeholder="김동국"></p>
+            <p><span class="label">학번:</span> <input type="text" name="StudentNumber[]" required placeholder="2025000000"></p>
+            <p><span class="label">성별:</span>
+                <input type="radio" name="gender_${personCount}" value="male" required, checked> 남성
+                <input type="radio" name="gender_${personCount}" value="female"> 여성
+            </p>
+            <p><span class="label">전화번호:</span> <input type="tel" name="tel[]" required placeholder="010-1234-5678"></p>
+            <p><span class="label">이메일:</span> <input type="email" name="email[]" required placeholder="example@dgu.ac.kr"></p>
+            <p><span class="label">전공:</span> <input type="text" name="major[]" required placeholder="컴퓨터공학과"></p>
+            <p><span class="label">프로그램 언어:</span>
+                <input type="checkbox" name="language_${personCount}" value="python"> Python
+                <input type="checkbox" name="language_${personCount}" value="java"> Java
+                <input type="checkbox" name="language_${personCount}" value="javascript"> JavaScript
+                <input type="checkbox" name="language_${personCount}" value="c"> C
+                <input type="checkbox" name="language_${personCount}" value="c++"> C++
+            </p>
+            <p><span class="label">MBTI:</span>
+                <select name="mbti[]" required>
+                    <option value="" disabled selected>선택하세요</option>
+                    <optgroup label="분석가">
+                        <option value="INTJ">INTJ</option>
+                        <option value="INTP">INTP</option>
+                        <option value="ENTJ">ENTJ</option>
+                        <option value="ENTP">ENTP</option>
+                    </optgroup>
+                    <optgroup label="외교관">
+                        <option value="INFJ">INFJ</option>
+                        <option value="INFP">INFP</option>
+                        <option value="ENFJ">ENFJ</option>
+                        <option value="ENFP">ENFP</option>
+                    </optgroup>
+                    <optgroup label="관리자">
+                        <option value="ISTJ">ISTJ</option>
+                        <option value="ISFJ">ISFJ</option>
+                        <option value="ESTJ">ESTJ</option>
+                        <option value="ESFJ">ESFJ</option>
+                    </optgroup>
+                    <optgroup label="탐험가">
+                        <option value="ISTP">ISTP</option>
+                        <option value="ISFP">ISFP</option>
+                        <option value="ESTP">ESTP</option>
+                        <option value="ESFP">ESFP</option>
+                    </optgroup>
+                </select>
+            </p>
+            <p><span class="label">좋아하는 색깔:</span> <input type="color" name="color[]" required value="#f9f9f9"></p>    
+            <p><span class="label">사진 업로드:</span> <input type="file" name="photo[]" accept="image/*"></p>
+            <div class="delete-btn-container">
+                <button type="delete" class="delete-btn" onclick="deletePerson(this)">삭제</button>
+            </div>
+        `;
+
+        container.appendChild(personBlock);
+    }
+    
+    function deletePerson(button) {
+        const personBlock = button.closest('.person-block');
+        if (personBlock) {
+            personBlock.remove();
+        }
+    }
+    </script>
+    </body>
+    </html>

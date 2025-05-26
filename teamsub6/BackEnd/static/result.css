@@ -1,0 +1,131 @@
+/* contact page 스타일 */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.welcome-message{
+  color:#985605
+}
+.welcome-message span{
+  font-family: 'Jockey One', sans-serif;
+  font-size: 50px
+}
+
+.container {
+  display: flex;
+  grid-template-columns: repeat(4, 350px);
+  justify-content: center;
+  gap: 20px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.student-block {
+  position: relative;
+  border-radius: 50px;
+  width: 350px;
+  height: 450px;
+  z-index: 1;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.grid-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 핵심: 항상 중앙 정렬 */
+  gap: 20px;
+  max-width: calc(350px * 4 + 20px * 3); /* 최대 너비 제한 */
+  margin: 0 auto;
+}
+
+.team-member:nth-of-type(2),
+.team-member:nth-of-type(4) {
+  margin-top: 70px;
+}
+
+.info p {
+  text-align: left;
+  text-indent: 120px;
+  color: white;
+  margin: 3px;
+}
+
+.indented-img {
+  display: block;
+  margin-left: 60px;
+  margin-bottom: -20px;
+  width: 300px;
+}
+
+.vertical-name {
+  position: absolute;
+  color: white;
+  font-size: 70px;
+  line-height: 1.2;
+  font-weight: bold;
+  margin-left: 25px;
+  margin-top: 150px;
+}
+
+.rotated-main {
+  transform: translateX(-600px);
+  transform-origin: center;
+  display: block;
+  margin: 0 auto;
+  width: 180px;
+}
+
+.rotated-leader {
+  position: absolute;
+  transform-origin: center;
+  display: block;
+  margin: 0 auto;
+  width: 90px;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+.line {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  z-index: 0;
+}
+.line1 {
+  transform-origin: center;
+  transform: translateX(-350px) translateY(-25px) rotate(-135deg);
+}
+.line2 {
+  transform-origin: center;
+  transform: translateX(15px) translateY(440px) rotate(-45deg);
+}
+.line3 {
+  transform-origin: center;
+  transform: translateX(390px) translateY(-25px) rotate(-135deg);
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animated-block {
+  animation-name: fadeInLeft;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
