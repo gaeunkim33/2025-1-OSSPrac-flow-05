@@ -1,0 +1,40 @@
+pipeline {
+    agent any  
+
+    triggers {
+        pollSCM('H/3 * * * *')
+    } 
+
+    environment {
+        DOCKER = credentials('dockerhub')
+        BUILD_NUMBER = "${env.BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Prepare') {
+            steps {
+                git url: 'https://github.com/CSID-DGU/2025-1-OSSPrac-flow-05.git',
+                    branch: 'main',
+                    credentialsId: 'github'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('teamsub6') {
+                    sh 'docker-compose build frontapp backapp'
+                }
+            }
+        }
+
+        stage('Push') {
+            steps {
+                script {
+                    sh "docker login -u $DOCKER_USR -p $DOCKER_PSW"
+                    sh "docker push ${DOCKER_USR}/frontapp:${BUILD_NUMBER}"
+                    sh "docker push ${DOCKER_USR}/backapp:${BUILD_NUMBER}"
+                }
+            }
+        }
+    }
+}
