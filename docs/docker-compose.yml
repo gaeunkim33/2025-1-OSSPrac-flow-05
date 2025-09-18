@@ -1,0 +1,24 @@
+# docker-compose.yml
+
+version: "3.0"                 # docker compose 파일의 버전
+
+services: # 아래는 서비스 정의  
+   frontapp:                   # service1의 명칭  
+      # 서비스 빌드를 위한 정의 내용
+      build:
+        context: ./FrontEnd
+        dockerfile: Dockerfile
+      image: ${DOCKER_USR}/frontapp:${BUILD_NUMBER}
+      ports:
+         - "5001:80"
+      container_name: frontapp_flow
+
+   backapp:                   # service2의 명칭  
+      # 서비스 빌드를 위한 정의 내용
+      build:
+        context: ./BackEnd
+        dockerfile: Dockerfile
+      image: ${DOCKER_USR}/backapp:${BUILD_NUMBER}
+      ports:
+        - "5000:5000"
+      container_name: backapp_flow
