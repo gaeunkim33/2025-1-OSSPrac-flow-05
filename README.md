@@ -30,5 +30,5 @@
 ---
 
 <p align="center">
-  🌐 <a href="http://kgeflowteamweb.com/" target="_blank">Visit Our Website</a>
+  🌐 <a href="https://gaeunkim33.github.io/2025-1-OSSPrac-flow-05/", target="_blank">Visit Our Website</a>
 </p>
