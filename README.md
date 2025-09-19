@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="images/flow.png" alt="Flow Logo" width="200"/>
-</p>
-
 <h1 align="center">2025-1-OSSPrac-flow-05</h1>
 <h3 align="center">2025-1 Open Source Software Practice</h3>
 <h4 align="center">Team leader: 김가은 Gaeun Kim</h4>
@@ -35,8 +31,4 @@
 
 <p align="center">
   🌐 <a href="http://kgeflowteamweb.com/" target="_blank">Visit Our Website</a>
-</p>
-
-<p align="center">
-  <img src="images/website_preview.png" alt="Website Preview" width="600"/>
 </p>
